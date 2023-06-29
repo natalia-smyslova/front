@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack serve --mode development",
     "build": "webpack --mode production",
-    "clear": "del-cli --force dist coverage doc"
+    "clear": "del-cli --force dist coverage doc",
+    "lint": "eslint . --fix"
   },
   "author": "coursar",
   "license": "MIT",

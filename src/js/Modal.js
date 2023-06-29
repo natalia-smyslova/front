@@ -1,44 +1,43 @@
 export default class Modal {
-	constructor(parent, method) {
-		this.parentElement = document.querySelector(parent);
-		this.method = method;
-	}
+  constructor(parent, method) {
+    this.parentElement = document.querySelector(parent);
+    this.method = method;
+  }
 
-	init() {
-		this.modal = document.createElement("div")
-		this.modal.classList.add("modal");
+  init() {
+    this.modal = document.createElement("div");
+    this.modal.classList.add("modal");
 
-    const addButton = document.querySelector('.header__button');
+    const addButton = document.querySelector(".header__button");
 
-    addButton.addEventListener('click', () => {
-      this.modal.classList.add('visible');
+    addButton.addEventListener("click", () => {
+      this.modal.classList.add("visible");
     });
 
-		if (this.method === "delete") {
-			this.modal.classList.add("delete-task");
+    if (this.method === "delete") {
+      this.modal.classList.add("delete-task");
+    }
 
-		}
+    let titleTicket;
 
-		let titleTicket;
+    switch (this.method) {
+      case "add":
+        titleTicket = "Добавить";
+        break;
 
-		switch (this.method) {
-			case "add":
-				titleTicket = "Добавить";
-				break;
+      case "edit":
+        titleTicket = "Изменить";
+        break;
 
-			case "edit":
-				titleTicket = "Изменить";
-				break;
+      case "delete":
+        titleTicket = "Удалить";
+        break;
 
-			case "delete":
-				titleTicket = "Удалить";
-				break;
+      default:
+        break;
+    }
 
-			default:
-				break;
-		}
-
-		this.modal.innerHTML = `
+    this.modal.innerHTML = `
       <form class="modal-form visible" name="taskmanager-form">
         <div class="modal-form__header">
           <p>${titleTicket} тикет</p>
@@ -57,26 +56,28 @@ export default class Modal {
       </form>
         `;
 
+    this.parentElement.appendChild(this.modal);
+    this.addEvents();
+    return this.modal;
+  }
 
-		this.parentElement.appendChild(this.modal);
-		this.addEvents();
-		return this.modal;
-	}
+  addEvents() {
+    this.modal.addEventListener("click", (e) => {
+      e.preventDefault();
 
-	addEvents() {
-		this.modal.addEventListener("click", e => {
-			e.preventDefault();
+      if (
+        e.target.classList.contains("modal") ||
+        e.target.closest(".cancel-button")
+      ) {
+        this.modal.remove();
+      }
+    });
 
-			if (e.target.classList.contains("modal") || e.target.closest(".cancel-button")) {
-				this.modal.remove();
-			}
-		})
-
-		this.modal.addEventListener("submit", e => {
-			e.preventDefault();
-		})
-	}
-	remove() {
-		this.modal.remove();
-	}
+    this.modal.addEventListener("submit", (e) => {
+      e.preventDefault();
+    });
+  }
+  remove() {
+    this.modal.remove();
+  }
 }
