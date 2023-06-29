@@ -1,24 +1,18 @@
 {
-  "plugins": ["prettier"],
-  "extends": ["eslint:recommended", "plugin:prettier/recommended"],
+  "extends": "airbnb-base",
   "env": {
-    "es6": true,
-    "browser": true,
-    "jest/globals": true
-  },
-  "parserOptions": {
-    "sourceType": "module",
-    "ecmaVersion": 8
+     "es6": true,
+     "browser": true,
+     "jest": true
   },
   "rules": {
-    "no-unused-vars": "warn"
+    "no-restricted-syntax": [
+      "error",
+      "LabeledStatement",
+      "WithStatement"
+    ]
   },
-  "overrides": [
-    {
-      "files": ["**/*.test.js"],
-      "plugins": ["jest"],
-      "extends": ["plugin:jest/recommended"],
-      "rules": { "jest/prefer-expect-assertions": "off" }
-    }
-  ]
+  "parserOptions": {
+    "ecmaVersion": 8
+}
 }
