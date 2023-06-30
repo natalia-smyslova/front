@@ -1,7 +1,7 @@
-import Helpdesk from "./Helpdesk";
+import Helpdesk from './Helpdesk';
 
-document.addEventListener("DOMContentLoaded", () => {
-  const mainTaskMansger = new Helpdesk(".helpdesk", "tickets__container");
+document.addEventListener('DOMContentLoaded', () => {
+  const mainTaskMansger = new Helpdesk('.helpdesk', 'tickets__container');
 
   mainTaskMansger.init();
 });

@@ -10,7 +10,10 @@
       "error",
       "LabeledStatement",
       "WithStatement"
-    ]
+    ],
+    "no-tabs": 0,
+    "no-console": "off",
+    "no-param-reassign": "off"
   },
   "parserOptions": {
     "ecmaVersion": 8

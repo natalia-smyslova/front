@@ -5,32 +5,32 @@ export default class Modal {
   }
 
   init() {
-    this.modal = document.createElement("div");
-    this.modal.classList.add("modal");
+    this.modal = document.createElement('div');
+    this.modal.classList.add('modal');
 
-    const addButton = document.querySelector(".header__button");
+    const addButton = document.querySelector('.header__button');
 
-    addButton.addEventListener("click", () => {
-      this.modal.classList.add("visible");
+    addButton.addEventListener('click', () => {
+      this.modal.classList.add('visible');
     });
 
-    if (this.method === "delete") {
-      this.modal.classList.add("delete-task");
+    if (this.method === 'delete') {
+      this.modal.classList.add('delete-task');
     }
 
     let titleTicket;
 
     switch (this.method) {
-      case "add":
-        titleTicket = "Добавить";
+      case 'add':
+        titleTicket = 'Добавить';
         break;
 
-      case "edit":
-        titleTicket = "Изменить";
+      case 'edit':
+        titleTicket = 'Изменить';
         break;
 
-      case "delete":
-        titleTicket = "Удалить";
+      case 'delete':
+        titleTicket = 'Удалить';
         break;
 
       default:
@@ -62,21 +62,22 @@ export default class Modal {
   }
 
   addEvents() {
-    this.modal.addEventListener("click", (e) => {
+    this.modal.addEventListener('click', (e) => {
       e.preventDefault();
 
       if (
-        e.target.classList.contains("modal") ||
-        e.target.closest(".cancel-button")
+        e.target.classList.contains('modal')
+        || e.target.closest('.cancel-button')
       ) {
         this.modal.remove();
       }
     });
 
-    this.modal.addEventListener("submit", (e) => {
+    this.modal.addEventListener('submit', (e) => {
       e.preventDefault();
     });
   }
+
   remove() {
     this.modal.remove();
   }

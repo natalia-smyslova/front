@@ -34,7 +34,8 @@
     "webpack-dev-server": "^4.3.12"
   },
   "dependencies": {
-    "core-js": "^3.29.1"
+    "core-js": "^3.29.1",
+    "uuid": "^9.0.0"
   },
   "repository": {
     "type": "git",
