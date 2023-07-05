@@ -55,4 +55,4 @@ async function sendToServer(methodToSend, bodyObject) {
   }
 }
 
-export default sendToServer();
+export default sendToServer;
